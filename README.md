@@ -35,10 +35,10 @@ this could be validated as a data quality check but i interpret this as meaning 
 Rows violating any of these rules are excluded from output datasets and written to `output/anomalies.json`.
 
 ## Additional Observations
-The 'is_home' field contained the values "True, False, yes". But it is specified that 'is_home' should be boolean.
-I decided that 'yes' should be interpreted as 'True' in order to convert it to the specified type.
+The **is_home** field contained the values *True, False, yes*. But it is specified that **is_home** should be of type boolean.
+I decided that *yes* should be interpreted as *True* in order to convert it to the specified type.
 
 ## Futurework
-Given more time, i should add:
+Given more time, i could add the following:
   - Error handling: e.g. in build_match verify each match has exactly 1 home team and 1 away team.
   - Complete test suite: make sure code works with respect to each specification, for all contexts.
