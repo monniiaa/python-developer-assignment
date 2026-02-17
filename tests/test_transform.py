@@ -1,5 +1,5 @@
 import pandas as pd
-from transform import build_match, build_statistics, build_standings
+from transform import build_match, build_statistic, build_standings
 
 def test_buildmatch_AggregatesGoalsCorrectly():
     # Arrange
@@ -36,7 +36,7 @@ def test_buildmatch_TwoMatches_BothMatchesReturned():
     assert len(result) == 2
     assert result['match_id'].tolist() == [1, 2]
 
-def test_buildstatistics_CalculatesMinutesFractionCorrectly():
+def test_buildstatistic_CalculatesMinutesFractionCorrectly():
     # Arrange
     df = pd.DataFrame({
         'player_id': [1, 2],
@@ -46,14 +46,14 @@ def test_buildstatistics_CalculatesMinutesFractionCorrectly():
     })
     
     # Act
-    result = build_statistics(df)
+    result = build_statistic(df)
     
     # Assert
     assert result['fraction_of_total_minutes_played'].iloc[0] == 1.0
     assert result['fraction_of_total_minutes_played'].iloc[1] == 0.5
 
 
-def test_buildstatistics_CalculatesGoalsFractionCorrectly():
+def test_buildstatistic_CalculatesGoalsFractionCorrectly():
     # Arrange
     df = pd.DataFrame({
         'player_id': [1, 2],
@@ -63,7 +63,7 @@ def test_buildstatistics_CalculatesGoalsFractionCorrectly():
     })
     
     # Act
-    result = build_statistics(df)
+    result = build_statistic(df)
     
     # Assert
     assert abs(result['fraction_of_total_goals_scored'].iloc[0] - 0.67) < 0.01
@@ -80,7 +80,7 @@ def test_buildstatistics_HandlesZeroGoals():
     })
     
     # Act
-    result = build_statistics(df)
+    result = build_statistic(df)
     
     # Assert
     assert result['fraction_of_total_goals_scored'].iloc[0] == 0.0

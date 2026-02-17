@@ -42,7 +42,7 @@ def build_player(df):
     )
 
 
-def build_statistics(df):
+def build_statistic(df):
     df = df.reset_index(drop = True)
     match_goals = df.groupby('match_id')['goals_scored'].transform('sum')
     

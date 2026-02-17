@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from validation import validate_business_rules
-from transform import build_match, build_team, build_player, build_statistics, build_standings
+from transform import build_match, build_team, build_player, build_statistic, build_standings
 
 input_file = 'assignment_input.csv'
 output_directory = 'output'
@@ -29,7 +29,7 @@ def main():
     match_df = build_match(clean_df)
     team_df = build_team(clean_df)
     player_df = build_player(clean_df)
-    statistic_df = build_statistics(clean_df)
+    statistic_df = build_statistic(clean_df)
     standings_df = build_standings(match_df, team_df)
 
     
