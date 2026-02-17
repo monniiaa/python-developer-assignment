@@ -20,13 +20,13 @@ From the root directory execute:
 pytest
 ```
 
-## Business Rules & Assumptions
+## Business Rules
 The assignment states that data should be "validated against business rules" but does not explicitly enumerate them. Based on the specification, I implemented the following validations:
 
-1. **Minutes Played**: Must be between 0 and 90
+1. **Minutes Played**: Must be between 0 and 90.
    - Reason: It is specified that "All matches should be 90 minutes in duration"
    
-2. **Goals Scored**: Cannot be negative
+2. **Goals Scored**: Cannot be negative.
    - Reason: Negative goals are impossible
 
 It is stated that it can be assumed that "each player only plays for one team across the entire dataset",
